@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * @author 不在能知，乃在能行 ——nicholas
- * @description
+ * @description 发牌器
  * @date 2020/9/27 17:14
  */
 public class TexasDealer {
