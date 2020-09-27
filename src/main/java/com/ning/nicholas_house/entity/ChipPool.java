@@ -1,30 +1,30 @@
 package com.ning.nicholas_house.entity;
 
-import com.ning.nicholas_house.enums.PlayerStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 
+import java.util.List;
+
 /**
  * @author 不在能知，乃在能行 ——nicholas
- * @description 玩家对象
- * @date 2020/9/27 16:31
+ * @description
+ * @date 2020/9/27 17:06
  */
 @Data
 @ToString
 @Accessors(chain = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Player extends User {
+public class ChipPool {
     /**
-     * 玩家账户总余额
+     * 筹码池总额
      */
-    private Long balance;
+    private Long allChips;
     /**
-     * 玩家状态
+     * 下注记录
      */
-    private PlayerStatus playerStatus;
-
+    private List<String> record;
 }

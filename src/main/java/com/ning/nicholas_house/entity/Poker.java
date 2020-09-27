@@ -1,6 +1,5 @@
 package com.ning.nicholas_house.entity;
 
-import com.ning.nicholas_house.enums.PlayerStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,22 +8,21 @@ import lombok.experimental.Accessors;
 
 /**
  * @author 不在能知，乃在能行 ——nicholas
- * @description 玩家对象
- * @date 2020/9/27 16:31
+ * @description
+ * @date 2020/9/27 16:41
  */
 @Data
 @ToString
 @Accessors(chain = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Player extends User {
+public class Poker {
     /**
-     * 玩家账户总余额
+     * 牌面标记
      */
-    private Long balance;
+    private String number;
     /**
-     * 玩家状态
+     * 花色
      */
-    private PlayerStatus playerStatus;
-
+    private String flower;
 }
