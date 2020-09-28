@@ -3,3 +3,7 @@ server:
 spring:
   application:
     name: nicholas_house
+  mvc:
+    static-path-pattern: /static/**
+  resources:
+    static-locations: classpath:/static/

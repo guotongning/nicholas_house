@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @date 2020/9/27 17:54
  */
 @Controller
-@RequestMapping("/nicholas/view")
 public class ViewController {
-
+    @RequestMapping("home")
+    public String index() {
+        return "home";
+    }
 }
