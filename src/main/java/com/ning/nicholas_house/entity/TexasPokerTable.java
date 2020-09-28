@@ -1,6 +1,7 @@
 package com.ning.nicholas_house.entity;
 
 import com.ning.nicholas_house.enums.TexasStage;
+import com.ning.nicholas_house.worker.TexasDealer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,10 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TexasPokerTable {
+    /**
+     * 发牌器
+     */
+    private TexasDealer texasDealer;
     /**
      * 牌桌上的玩家
      */

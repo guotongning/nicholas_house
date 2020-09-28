@@ -10,12 +10,19 @@ import lombok.NoArgsConstructor;
  * @date 2020/9/27 17:56
  */
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 public class Result<T> {
     private int code;
     private String msg;
     private T data;
+
+    public Result() {
+    }
+
+    public Result(T data) {
+        this.success();
+        this.data = data;
+    }
 
     public Result(int code, String msg) {
         this.code = code;

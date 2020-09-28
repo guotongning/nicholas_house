@@ -1,4 +1,4 @@
-package com.ning.nicholas_house.game.texas;
+package com.ning.nicholas_house.worker;
 
 import com.ning.nicholas_house.entity.Poker;
 import com.ning.nicholas_house.entity.TexasPokerPlayer;
