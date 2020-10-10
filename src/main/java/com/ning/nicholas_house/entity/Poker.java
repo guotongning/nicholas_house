@@ -16,7 +16,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Poker {
+public class Poker implements Comparable<Poker> {
     /**
      * 牌面标记
      */
@@ -25,4 +25,13 @@ public class Poker {
      * 花色
      */
     private String flower;
+    /**
+     * 值大小
+     */
+    private Integer value;
+
+    @Override
+    public int compareTo(Poker o) {
+        return this.getValue().compareTo(o.getValue());
+    }
 }

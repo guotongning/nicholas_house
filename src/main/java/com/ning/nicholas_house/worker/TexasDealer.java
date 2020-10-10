@@ -4,8 +4,7 @@ import com.ning.nicholas_house.entity.Poker;
 import com.ning.nicholas_house.entity.TexasPokerPlayer;
 import com.ning.nicholas_house.enums.PokerPool;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author 不在能知，乃在能行 ——nicholas
@@ -19,7 +18,11 @@ public class TexasDealer {
      * 牌池初始化
      */
     public TexasDealer() {
-        this.pokers = Arrays.asList(PokerPool.TEXAS.getPokers());
+        ArrayList<Poker> pokers = new ArrayList<>(Arrays.asList(PokerPool.TEXAS.getPokers()));
+        Collections.shuffle(pokers);
+        Collections.shuffle(pokers);
+        Collections.shuffle(pokers);
+        this.pokers = pokers;
     }
 
     /**
@@ -38,19 +41,14 @@ public class TexasDealer {
      *
      * @return
      */
-    private synchronized Poker remAndGet() {
-        Poker poker = this.pokers.get(0);
-        boolean remove = this.pokers.remove(poker);
-        if (remove) {
-            return poker;
-        }
-        return null;
+    public synchronized Poker remAndGet() {
+        return this.pokers.remove(0);
     }
 
     /**
-     * 发牌
+     * 发手牌
      */
-    public void Licensing(TexasPokerPlayer[] pokerPlayers) {
+    public void LicensingHands(TexasPokerPlayer[] pokerPlayers) {
         if (pokerPlayers.length > 0) {
             for (TexasPokerPlayer pokerPlayer : pokerPlayers) {
                 if (pokerPlayer != null) {
@@ -58,10 +56,22 @@ public class TexasDealer {
                     pokers[0] = remAndGet();
                     pokers[1] = remAndGet();
                     checkGetHands(pokers);
-                    pokerPlayer.setFinalHands(pokers);
+                    pokerPlayer.setHands(pokers);
                 }
             }
         }
+    }
+
+    /**
+     * 翻牌
+     */
+    public Poker[] Flop() {
+        Poker[] flop = new Poker[3];
+        flop[0] = remAndGet();
+        flop[1] = remAndGet();
+        flop[2] = remAndGet();
+        checkGetHands(flop);
+        return flop;
     }
 
     /**
